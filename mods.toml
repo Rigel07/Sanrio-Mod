@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="sanriofriends"
+version="1.0.0"
+displayName="Sanrio Friends"
+description='''
+Mod no oficial hecho por fans: Hello Kitty, My Melody, Kuromi, Cinnamoroll y Purin viven en casitas por el mundo.
+Habla con ellos, completa sus misiones, hazte su amigo y pídeles que te sigan.
+Los personajes pertenecen a Sanrio Co., Ltd. Proyecto sin ánimo de lucro.
+'''
+
+[[dependencies.sanriofriends]]
+modId="forge"
+mandatory=true
+versionRange="[47.3.0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.sanriofriends]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"

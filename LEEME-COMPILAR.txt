@@ -1,0 +1,29 @@
+SANRIO FRIENDS 1.0.0 - COMO COMPILAR EL MOD CON GITHUB (sin instalar nada)
+
+SUBIRLO A GITHUB (usa un repositorio NUEVO, p. ej. "sanrio-friends")
+ 1. Descomprime este zip.
+ 2. En GitHub: crea el repositorio y pulsa "uploading an existing file".
+ 3. (Son solo 34 archivos: las texturas, modelos y estructuras las genera GitHub solo al compilar.)
+    Arrastra TODO el contenido de la carpeta descomprimida: src, tools, .github, build.gradle,
+    gradle.properties, settings.gradle, README.md, LICENSE, .gitignore...
+    IMPORTANTE: arrastra tambien la carpeta oculta ".github" (si no se sube, el mod no se compila).
+    Si despues no la ves en GitHub: Add file -> Create new file, escribe como nombre
+      .github/workflows/build.yml
+    y pega el contenido del archivo build.yml de tu carpeta descomprimida (abrelo con el Bloc de notas). Commit.
+ 4. Commit changes.
+ 5. Pestana Actions: espera a que el Build salga en verde (3-6 min). Si no arranca: Build -> Run workflow.
+ 6. Descarga el artefacto "sanrio-friends": dentro esta sanrio-friends-1.0.0.jar.
+
+NO LO MEZCLES con los repositorios de tus otros mods (Corazon de Melon, Niebla Mistica...): usan el mismo
+nombre de archivos (build.gradle, src) y se pisarian.
+
+EN MINECRAFT (Forge 1.20.1)
+ - Pon el jar en la carpeta mods (puede convivir con tus otros mods).
+ - Prueba rapida en un mundo creativo:   /place structure sanriofriends:hello_kitty_house
+   Haz clic derecho a Hello Kitty y habla con ella. Mas comandos de prueba en el README.
+ - En un mundo nuevo las casas aparecen solas al explorar (Hello Kitty es la mas frecuente).
+   Para encontrarlas:   /locate structure sanriofriends:hello_kitty_house
+
+NOTA: las casas solo se generan en chunks NUEVOS. En un mundo ya explorado usa /place structure.
+
+SI EL BUILD SALE EN ROJO: abre el Build fallido en Actions, copia las lineas que empiezan por "error:" y pasamelas.
