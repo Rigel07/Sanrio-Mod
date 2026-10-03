@@ -16,6 +16,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Ordenar archivos en sus carpetas (por si se subieron sueltos)
+        run: |
+          J=src/main/java/com/sanriofriends
+          place() {
+            if [ -f "$1" ]; then mkdir -p "$2"; mv "$1" "$2/"; echo "movido $1 -> $2/"; fi
+          }
+          for f in Quests Dialogue Lines FriendData; do place $f.java $J/dialogue; done
+          place QuestEvents.java $J/event
+          place SanrioCharacter.java $J
+          place SanrioFriends.java $J
+          place PlushBlock.java $J/block
+          place SanrioCommands.java $J/command
+          place CharmItem.java $J/item
+          for f in ModItems ModTabs ModEntities ModBlocks; do place $f.java $J/registry; done
+          for f in ClientSetup SanrioRenderer SanrioModel; do place $f.java $J/client; done
+          for f in SanrioEntity CinnamorollEntity; do place $f.java $J/entity; done
+          place mods.toml src/main/resources/META-INF
+          place pack.mcmeta src/main/resources
+          for f in data generate_all parts structures textures; do place $f.py tools; done
+
       - name: Comprobar que el codigo esta en el repositorio
         run: |
           echo "Archivos en la raiz:"; ls -la
